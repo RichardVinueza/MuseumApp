@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>sign up</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding center text-center>
+
+  <ion-list>
+    <ion-item>
+      <ion-input [(ngModel)]="fullName" placeholder="Full Name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input [(ngModel)]="email" placeholder="Email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input [(ngModel)]="nationality" placeholder="Nationality"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input [(ngModel)]="password" placeholder="Password"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <ion-button color="primary" (click)="goToDisplayData()">DONE</ion-button>
+
+</ion-content>
