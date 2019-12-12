@@ -17,6 +17,7 @@ export class SignupPage implements OnInit {
   nationality: string;
   password: string;
   admin: boolean
+  
 
   constructor(private route: Router, private apiSignup: SignupapiService) { }
 
@@ -25,6 +26,7 @@ export class SignupPage implements OnInit {
 
   ionViewWillEnte() {
     this.goToDisplayData();
+    this.goToLogin()
   }
 
   goToDisplayData() {
@@ -52,6 +54,10 @@ export class SignupPage implements OnInit {
     }, (error) => {
       console.log(error);
     });
+  }
+
+  goToLogin(){
+    this.route.navigate(['/login']);
   }
 
 }

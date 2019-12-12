@@ -3,12 +3,14 @@ import { HttpClient, HttpClientModule } from  '@angular/common/http';
 import { Params } from '@angular/router';
 
 export class signup {
+
   idUser : number;
   fullName : String;
   email : String;
   nationality : string;
   password : String;
   admin: boolean;
+
 
 }
 

@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding center text-center>
+  <form [formGroup]="registrationForm" (ngSubmit)="submit()">
+    <ion-item>
+      <ion-input formControlName="email" type="email" placeholder="Email" inputmode="email"></ion-input>
+    </ion-item>
+
+    <div *ngFor="let error of errorMessages.email">
+      <ng-container *ngIf="email.hasError(error.type) && (email.dirty || email.touched)">
+        <small class="error-message">{{error.message}}</small>
+      </ng-container>
+    </div>
+
+    <ion-item>
+      <ion-input formControlName="password" placeholder="Password" type="password" inputmode="text"></ion-input>
+    </ion-item>
+
+    <div *ngFor="let error of errorMessages.password">
+      <ng-container *ngIf="password.hasError(error.type) && (password.dirty || password.touched)">
+        <small class="error-message">{{error.message}}</small>
+      </ng-container>
+    </div>
+  </form>
+  <div text-center>
+    <ion-button [disabled]=!registrationForm.valid (click)="submit()" type="submit">Log In</ion-button>
+  </div>
+</ion-content>
