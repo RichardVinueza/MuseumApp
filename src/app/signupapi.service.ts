@@ -4,15 +4,6 @@ import { Params } from '@angular/router';
 import { map, catchError } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
-export class User {
-  idUser: number;
-  fullName: string;
-  email: string;
-  nationality: string;
-  password: string;
-  admin: boolean;
-}
-
 @Injectable({
   providedIn: 'root'
 })
@@ -38,21 +29,23 @@ export class SignupapiService {
     let body = urlSearchParams.toString();
 
     console.log("tibu" + dataToPostUser);
-    return this.http.post<User>("http://localhost:8080/api/postUser", body, options).pipe(
-      catchError(this.handleError)
-    );
+    return this.http.post("http://localhost:8080/api/postUser", body, options);
+    
+    // .pipe(
+    //   catchError(this.handleError)
+    // );
   }
 
-  private handleError(error: Response | any) {
-    let errMsg: string;
-    if (error instanceof Response) {
-      const err = error || '';
-      errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
-    } else {
-      errMsg = error.message ? error.message : error.toString();
-    }
-    console.error(errMsg);
-    return Observable.throw(errMsg);
-  }
+  // private handleError(error: Response | any) {
+  //   let errMsg: string;
+  //   if (error instanceof Response) {
+  //     const err = error || '';
+  //     errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
+  //   } else {
+  //     errMsg = error.message ? error.message : error.toString();
+  //   }
+  //   console.error(errMsg);
+  //   return Observable.throw(errMsg);
+  // }
 
 }

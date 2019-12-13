@@ -75,7 +75,7 @@ export class SignupPage implements OnInit {
 
   // goToDisplayData() {
   //   this.postOneUser();
-    
+
   // }
 
   postOneUser() {
@@ -87,14 +87,17 @@ export class SignupPage implements OnInit {
       "password": this.signUpForm.get("password").value,
       "admin": 0
     };
-    this.apiSignup.postUser(dataPostUser).subscribe((res) => {
-      console.log("tibu" + JSON.stringify(res));
-      this.route.navigate(['/displaydata']);
-    }, error => {
+    this.apiSignup.postUser(dataPostUser).subscribe();
+    console.log("tibu" + JSON.stringify(dataPostUser));
+    this.route.navigate(['/displaydata']);
 
-      console.log(error);
-    });
+    // this.apiSignup.postUser(dataPostUser).subscribe((res) => {
+    //   console.log("tibu" + JSON.stringify(res));
+    //   this.route.navigate(['/displaydata']);
+    // }, error => {
 
+    //   console.log(error);
+    // });
   }
 
   goToLogin() {
