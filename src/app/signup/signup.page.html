@@ -5,25 +5,74 @@
 </ion-header>
 
 <ion-content padding center text-center>
+  <form [formGroup]="signUpForm" (ngSubmit)="submit()">
+    <ion-item>
+      <ion-input formControlName="fullName" autocapitalize type="fullName" placeholder="Full name" inputmode="fullName"></ion-input>
+    </ion-item>
 
-    <ion-list>
-        <ion-item>
-          <ion-input [(ngModel)]="fullName" placeholder="Full Name"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-input [(ngModel)]="email" placeholder="Email"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-input [(ngModel)]="nationality" placeholder="Nationality"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-input [(ngModel)]="password" placeholder="Password"></ion-input>
-        </ion-item>
-        <br>
-        <br>
-        <ion-button color="primary" (click)="goToDisplayData()">DONE</ion-button>
-      </ion-list> 
-      <br>
-      <br>
-      <ion-button color="primary" (click)="goToLogin()">I already have an account</ion-button>  
+    <div *ngFor="let error of errorMessages.fullName">
+      <ng-container *ngIf="fullName.hasError(error.type) && (fullName.dirty || fullName.touched)">
+        <small class="error-message">{{error.message}}</small>
+      </ng-container>
+    </div>
+
+    <ion-item>
+      <ion-input formControlName="email" type="email" placeholder="Email" inputmode="email"></ion-input>
+    </ion-item>
+
+    <div *ngFor="let error of errorMessages.email">
+      <ng-container *ngIf="email.hasError(error.type) && (email.dirty || email.touched)">
+        <small class="error-message">{{error.message}}</small>
+      </ng-container>
+    </div>
+
+    <ion-item>
+        <ion-input formControlName="nationality" autocapitalize type="nationality" placeholder="Nationality" inputmode="nationality"></ion-input>
+      </ion-item>
+  
+      <div *ngFor="let error of errorMessages.nationality">
+        <ng-container *ngIf="nationality.hasError(error.type) && (nationality.dirty || nationality.touched)">
+          <small class="error-message">{{error.message}}</small>
+        </ng-container>
+      </div>
+
+    <ion-item>
+      <ion-input formControlName="password" placeholder="Password" type="password" inputmode="password"></ion-input>
+    </ion-item>
+
+    <div *ngFor="let error of errorMessages.password">
+      <ng-container *ngIf="password.hasError(error.type) && (password.dirty || password.touched)">
+        <small class="error-message">{{error.message}}</small>
+      </ng-container>
+    </div>
+  </form>
+  <br>
+  <br>
+  <div text-center>
+      <ion-button [disabled]=!signUpForm.valid (click)="submit()" type="submit">Sign Up</ion-button>
+  </div>
+  <br>
+  <br>
+  <ion-button (click)="goToLogin()">I already have an account</ion-button>
 </ion-content>
+
+<!-- <ion-list>
+    <ion-item>
+      <ion-input [(ngModel)]="fullName" placeholder="Full Name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input [(ngModel)]="email" placeholder="Email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input [(ngModel)]="nationality" placeholder="Nationality"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input [(ngModel)]="password" placeholder="Password"></ion-input>
+    </ion-item>
+    <br>
+    <br>
+    <ion-button color="primary" (click)="goToDisplayData()">DONE</ion-button>
+  </ion-list> 
+  <br>
+  <br>
+  <ion-button color="primary" (click)="goToLogin()">I already have an account</ion-button>   -->
