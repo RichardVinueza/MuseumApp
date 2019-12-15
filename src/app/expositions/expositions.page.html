@@ -4,6 +4,24 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content padding center text-center >
+  <ion-list *ngFor="let expo of expoArray">
+    <ion-item>
+      <ion-label *ngIf="expo.idExposition == 19" >
+        {{expo.name}}
+        <br>
+        <ion-button (click)="goToArtworks()">go</ion-button>
+      </ion-label>
+      <ion-label *ngIf="expo.idExposition == 20" >
+        {{expo.name}}
+        <br>
+        <ion-button (click)="goToArtworks2()">go</ion-button>
+      </ion-label>
+      <ion-label *ngIf="expo.idExposition == 21" >
+        {{expo.name}}
+        <br>
+        <ion-button (click)="goToArtworks3()">go</ion-button>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>

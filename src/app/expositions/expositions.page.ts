@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ExpoapiService, expositions } from '../expoapi.service';
 
 @Component({
   selector: 'app-expositions',
@@ -7,9 +9,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExpositionsPage implements OnInit {
 
-  constructor() { }
+  expoArray: Array<expositions> = [];
+  expo: expositions;
+  idExposition : expositions;
+
+
+  constructor(private route: Router, private apiExpo: ExpoapiService) { }
 
   ngOnInit() {
+    this.getAllExpositions();
+  }
+
+
+  getAllExpositions() {
+    this.apiExpo.getAllExpositions().subscribe((res: Array<expositions>) => {
+      this.expoArray = res;
+    })
+  }
+
+
+  goToArtworks() {
+    this.route.navigate(['/firstartwork']);
+  }
+  goToArtworks2() {
+    this.route.navigate(['/secondartwork']);
+  }
+  goToArtworks3() {
+    this.route.navigate(['/thirdartwork']);
   }
 
 }
