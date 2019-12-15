@@ -89,7 +89,7 @@ export class SignupPage implements OnInit {
     };
     this.apiSignup.postUser(dataPostUser).subscribe();
     console.log("tibu" + JSON.stringify(dataPostUser));
-    this.route.navigate(['/displaydata']);
+    this.route.navigate(['/expositions']);
 
     // this.apiSignup.postUser(dataPostUser).subscribe((res) => {
     //   console.log("tibu" + JSON.stringify(res));

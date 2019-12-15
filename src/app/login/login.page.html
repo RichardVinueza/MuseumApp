@@ -15,7 +15,6 @@
         <small class="error-message">{{error.message}}</small>
       </ng-container>
     </div>
-
     <ion-item>
       <ion-input formControlName="password" placeholder="Password" type="password" inputmode="text"></ion-input>
     </ion-item>
@@ -25,8 +24,12 @@
         <small class="error-message">{{error.message}}</small>
       </ng-container>
     </div>
-  </form>
-  <div text-center>
-    <ion-button [disabled]=!registrationForm.valid (click)="submit()" type="submit">Log In</ion-button>
-  </div>
+    <br>
+    <div text-center>
+      <ion-button [disabled]=!registrationForm.valid (click)="submit()" type="submit">Log In</ion-button>
+        <ng-container *ngIf="missingUser == true">
+          <p id="missing-user">User doesn't exist. Please, try again</p>
+        </ng-container>   
+    </div>
+  </form> 
 </ion-content>

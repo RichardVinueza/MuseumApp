@@ -46,9 +46,21 @@ export class LoginPage implements OnInit {
   ngOnInit() {
   }
 
-
+  missingUser : boolean = false;
   goToDisplayDataFromLogin(){
-    this.route.navigate(['/displaydata']);
+    this.loginapi.getUserExists().subscribe((res) => {
+      var result = JSON.parse(JSON.stringify(res))
+      for (let i=0; i < result.length; i++ ){
+        if ((result[i].email == this.registrationForm.get("email").value) &&
+        (result[i]).password == this.registrationForm.get("password").value){
+          this.route.navigate(['/expositions']);
+        }else{
+          this.missingUser = true;   
+          setTimeout(() => {
+            this.missingUser = false;
+          }, 1300);         
+        }
+      }     
+    });
   }
-
 }
