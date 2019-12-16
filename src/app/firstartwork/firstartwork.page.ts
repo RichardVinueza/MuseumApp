@@ -14,15 +14,15 @@ export class FirstartworkPage implements OnInit {
   constructor(private route : Router, private apiArtwork : ApifirstartworkService) { }
 
   ngOnInit() {
-    // this.getArtworks();
+    this.getArtworks();
   }
 
-  // getArtworks() {
-  //   this.apiArtwork.getAllFirstArtwork().subscribe((res: Array<artworks>) => {
-  //     this.artArray = res;
+  getArtworks() {
+    this.apiArtwork.getAllFirstArtwork().subscribe((res: Array<artworks>) => {
+      this.artArray = res;
 
-  //   })
-  // }
+    })
+  }
 
 
 }

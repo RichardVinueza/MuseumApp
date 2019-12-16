@@ -18,7 +18,7 @@ export class ApifirstartworkService {
 
   constructor(private http : HttpClient) { }
 
-  // getAllFirstArtwork(){
-  //   return this.http.get("http://localhost:8080/api/geArtworks");
-  // }
+  getAllFirstArtwork(){
+    return this.http.get("http://localhost:8080/api/getArtworks");
+  }
 }

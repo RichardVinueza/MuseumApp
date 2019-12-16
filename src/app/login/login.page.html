@@ -1,9 +1,15 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>login</ion-title>
+  <ion-toolbar mode="ios">
+    <ion-title>
+      Login
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="signup"></ion-back-button>
+      </ion-buttons>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
-
 <ion-content padding center text-center>
   <form [formGroup]="registrationForm" (ngSubmit)="submit()">
     <ion-item>
