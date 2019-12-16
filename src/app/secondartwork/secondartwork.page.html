@@ -15,31 +15,25 @@
     <ion-list *ngFor="let art of artArray">
       <div *ngIf="art.artExpo.idExposition == 20">
         <ion-item>
-          <ion-label >{{art.name}}</ion-label>
-        </ion-item>
-        <br>
-        <ion-item>
-          <ion-label>{{art.authorFullName}}</ion-label>
-        </ion-item>
-        <br>
-        <ion-item>
-          <ion-label>{{art.authorNationality}}</ion-label>
-        </ion-item>
-        <br>
-        <ion-item>
-          <ion-label>{{art.category}}</ion-label>
-        </ion-item>
-        <br>
-        <ion-item>
-          <ion-label>{{art.creationDate}}</ion-label>
-        </ion-item>
-        <br>
-        <ion-item>
-          <ion-label>{{art.creationPeriod}}</ion-label>
-        </ion-item>
-        <br>
-        <ion-item>
           <ion-img src="{{art.image}}"></ion-img>
+        </ion-item>
+        <ion-item>
+          <ion-label>Name: {{art.name}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Author's name: {{art.authorFullName}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Author's nationality: {{art.authorNationality}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Category: {{art.category}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Year: {{art.creationDate}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Period Style: {{art.creationPeriod}}</ion-label>
         </ion-item>
       </div>
     </ion-list>
