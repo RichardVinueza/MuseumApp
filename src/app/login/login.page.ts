@@ -52,13 +52,17 @@ export class LoginPage implements OnInit {
       var result = JSON.parse(JSON.stringify(res))
       for (let i=0; i < result.length; i++ ){
         if ((result[i].email == this.registrationForm.get("email").value) &&
-        (result[i]).password == this.registrationForm.get("password").value){
+        (result[i].password == this.registrationForm.get("password").value) &&
+        (result[i].admin == 0)){
           this.route.navigate(['/expositions']);
         }else{
           this.missingUser = true;   
           setTimeout(() => {
             this.missingUser = false;
           }, 1300);         
+        }
+        if(result[i].admin == 1){
+          this.route.navigate(['/admin']);
         }
       }     
     });
