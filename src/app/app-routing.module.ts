@@ -27,6 +27,10 @@ const routes: Routes = [
   {
     path: 'thirdartwork',
     loadChildren: () => import('./thirdartwork/thirdartwork.module').then( m => m.ThirdartworkPageModule)
+  },
+  {
+    path: 'admin',
+    loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule)
   }
 
 

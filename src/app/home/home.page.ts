@@ -17,7 +17,7 @@ export class HomePage implements OnInit {
   ionViewWillEnter() {
     setTimeout(() => {
       this.route.navigate(['/signup']);
-    }, 1000);
+    }, 1990);
 
   }
 

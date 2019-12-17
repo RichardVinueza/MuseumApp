@@ -15,7 +15,7 @@
   <ion-list *ngFor="let art of artArray">
     <div *ngIf="art.artExpo.idExposition == 19">
       <ion-item>
-        <ion-img src="{{art.image}}"></ion-img>
+        <ion-img [src]="art.image"></ion-img>
       </ion-item>
       <ion-item>
         <ion-label >Name: {{art.name}}</ion-label>

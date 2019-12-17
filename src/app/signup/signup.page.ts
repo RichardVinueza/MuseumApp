@@ -65,18 +65,11 @@ export class SignupPage implements OnInit {
 
   public submit() {
     console.log(this.signUpForm.value);
-    // this.goToDisplayData();
     this.postOneUser();
   }
 
   ngOnInit() {
   }
-
-
-  // goToDisplayData() {
-  //   this.postOneUser();
-
-  // }
 
   postOneUser() {
     console.log("tibu postOneUser");
@@ -90,14 +83,6 @@ export class SignupPage implements OnInit {
     this.apiSignup.postUser(dataPostUser).subscribe();
     console.log("tibu" + JSON.stringify(dataPostUser));
     this.route.navigate(['/expositions']);
-
-    // this.apiSignup.postUser(dataPostUser).subscribe((res) => {
-    //   console.log("tibu" + JSON.stringify(res));
-    //   this.route.navigate(['/displaydata']);
-    // }, error => {
-
-    //   console.log(error);
-    // });
   }
 
   goToLogin() {

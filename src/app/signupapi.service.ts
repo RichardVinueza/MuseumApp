@@ -11,7 +11,7 @@ export class SignupapiService {
 
   constructor(private http: HttpClient) { }
 
-  // Http Options
+  // Http Options, nos sirve para poner el formato JSON deseado
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
@@ -19,6 +19,7 @@ export class SignupapiService {
   }
 
   postUser(dataToPostUser) {
+    //Metemos dentro de la varaible options el formato 
     let options = { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } };
     let urlSearchParams = new URLSearchParams();
     urlSearchParams.append('fullName', dataToPostUser.fullName);
