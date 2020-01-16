@@ -1,9 +1,18 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>admin</ion-title>
+  <ion-toolbar mode="ios">
+    <ion-title>
+      Admin
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="login"></ion-back-button>
+      </ion-buttons>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding center text-center>
+  <h4>Click the button below to get a pdf with the users in the database</h4>
+  <ion-button (click)="getUsersReport()">GET HTML & PDF</ion-button>
 
 </ion-content>
